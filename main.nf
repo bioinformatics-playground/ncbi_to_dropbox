@@ -1,8 +1,17 @@
+/*
+Parameter to be read from user input
+*/
+
 ids = ['ERR908507']
+
+params.ncbiKey= ''
+
+cacheOption=true
+    
   
   
 Channel
-    .fromSRA(ids, cache: true)
+    .fromSRA(ids, cache: cacheOption, apiKey=ncbiKey)
     .into {ch_rclone_in}
 
 /*
