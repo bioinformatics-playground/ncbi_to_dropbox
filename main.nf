@@ -1,15 +1,13 @@
-# Upload the files to dropbox and delete them from the server
-
-```powershell
 ids = ['ERR908507']
   
+  
 Channel
-    .fromSRA(ids, cache: true, apiKey: "XXXXXXX")
+    .fromSRA(ids, cache: true)
     .into {ch_rclone_in}
 
 /*
 =======================
-rclone upload these files
+use rclone to upload these files
 =======================
 */
 
@@ -47,4 +45,4 @@ process deleteLocalFiles {
     """   
 
 }
-```
+
